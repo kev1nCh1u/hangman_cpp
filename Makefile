@@ -1,0 +1,2 @@
+hangman:
+	g++ main.cpp
