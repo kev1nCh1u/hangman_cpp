@@ -5,9 +5,21 @@
 
 using namespace std;
 
-string generateWord()
-{
+string the_man[7];
+the_man = "";
 
+string fillWord(int num, string c)
+{
+    string word_guess;
+    for (int i = 0; i < num; i++)
+    {
+        word_guess.append(c);
+    }
+    return word_guess;
+}
+
+string genWordAns()
+{
     srand(time(0));
 
     const string wordList[4] = {"icecream",
@@ -18,7 +30,7 @@ string generateWord()
     return word_ans;
 }
 
-void printString(string str)
+void printStr(string str)
 {
     for (int i = 0; i < str.length(); i++)
     {
@@ -27,41 +39,59 @@ void printString(string str)
     cout << endl;
 }
 
+string compareCharacter(string character_guess, string word_guess, string word_ans)
+{
+
+    for (int i = 0; i < word_ans.length(); i++)
+    {
+        if (character_guess[0] == word_ans[i])
+            word_guess[i] = character_guess[0];
+    }
+    return word_guess;
+}
+
+string compareString(string character_guess, string word_guess, string word_ans)
+{
+    for (int i = 0; i < word_ans.length(); i++)
+    {
+        if (word_ans.compare(i, character_guess.length(), character_guess) == 0 && character_guess.length() > 0)
+        {
+            // word_guess[i] = character_guess[0];
+            word_guess.replace(i, character_guess.length(), character_guess);
+        }
+    }
+    return word_guess;
+}
+
 int main()
 {
 
-    string word_ans = generateWord();
-    cout << word_ans << endl;
+    string word_ans = genWordAns();
+    string word_guess = fillWord(word_ans.length(), "_");;
+    string character_guess = "";
 
-    cout << "Hangman Game ..." << endl;
-    cout << word_ans.length() << " character" << endl;
-
-    string word_guess;
-    for (int i = 0; i < word_ans.length(); i++)
-    {
-        word_guess.append("_");
-    }
 
     while (1)
     {
+        if (system("CLS"))
+            system("clear");
 
-        string character_guess;
-        // for(int i=0; i<word_ans.length(); i++){
-        //     cout << "_ ";
-        // }
-        // cout << endl;
+        // cout << "ans:" << word_ans << endl;
 
-        for (int i = 0; i < word_ans.length(); i++)
-        {
-            if (character_guess[0] == word_ans[i])
-                word_guess[i] = character_guess[0];
+        cout << "Hangman Game ..." << endl;
+
+        // word_guess = compareCharacter(character_guess, word_guess, word_ans);
+        word_guess = compareString(character_guess, word_guess, word_ans);
+
+        printStr(word_guess);
+
+        if(word_guess == word_ans){
+            cout << "You are safe !" << endl;
+            break;
         }
-
-        printString(word_guess);
 
         cout << "guess a character or a word: ";
         cin >> character_guess;
-        cout << character_guess << endl;
     }
 
     return 0;
