@@ -5,7 +5,8 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     // cout << "      ========" << endl;
     // cout << "      ||     ||" << endl;
     // cout << "      ||" << endl;
@@ -15,7 +16,7 @@ int main(){
     // cout << "      ||" << endl;
     // cout << "   =============" << endl;
 
-    cout <<"\
+    cout << "\
     --------     \n\
     |      |     \n\
     |      O     \n\
@@ -23,6 +24,5 @@ int main(){
     |      |     \n\
     |     / \\   \n\
     |            \n\
---------------" << endl;
-
+--------------\n";
 }

@@ -5,8 +5,80 @@
 
 using namespace std;
 
-string the_man[7];
-the_man = "";
+string the_man[8]={
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |            \n\
+    |            \n\
+    |            \n\
+    |            \n\
+    |            \n\
+--------------\n\n",
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |      O     \n\
+    |            \n\
+    |            \n\
+    |            \n\
+    |            \n\
+--------------\n\n",
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |      O     \n\
+    |      |     \n\
+    |            \n\
+    |            \n\
+    |            \n\
+--------------\n\n",
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |      O     \n\
+    |     /|     \n\
+    |            \n\
+    |            \n\
+    |            \n\
+--------------\n\n",
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |      O     \n\
+    |     /|\\   \n\
+    |            \n\
+    |            \n\
+    |            \n\
+--------------\n\n",
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |      O     \n\
+    |     /|\\   \n\
+    |      |     \n\
+    |            \n\
+    |            \n\
+--------------\n\n",
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |      O     \n\
+    |     /|\\   \n\
+    |      |     \n\
+    |     /      \n\
+    |            \n\
+--------------\n\n",
+"\n\n\
+    --------     \n\
+    |      |     \n\
+    |      O     \n\
+    |     /|\\   \n\
+    |      |     \n\
+    |     / \\   \n\
+    |            \n\
+--------------\n\n"
+};
 
 string fillWord(int num, string c)
 {
@@ -69,7 +141,7 @@ int main()
     string word_ans = genWordAns();
     string word_guess = fillWord(word_ans.length(), "_");;
     string character_guess = "";
-
+    int loop = 0;
 
     while (1)
     {
@@ -89,6 +161,12 @@ int main()
             cout << "You are safe !" << endl;
             break;
         }
+        
+        cout << the_man[loop];
+        if(loop < 7)
+            loop++;
+        else
+            cout << "You are dead !" << endl;
 
         cout << "guess a character or a word: ";
         cin >> character_guess;
