@@ -1,10 +1,7 @@
 #ifndef KEVIN_HANGMAN_STYLE
 #define KEVIN_HANGMAN_STYLE
 
-#include <iostream>
 #include <string>
-#include <cstdlib>
-#include <ctime>
 
 using namespace std;
 

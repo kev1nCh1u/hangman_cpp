@@ -21,6 +21,6 @@ namespace kevin_hangman
 
     string compareString(string character_guess, string word_guess, string word_ans);
 
-};
+}; // namespace kevin_hangman
 
 #endif
